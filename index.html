@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mouthfuls — Coming Soon</title>
+  <meta name="description" content="Mouthfuls is coming soon. Join the waitlist to get early access.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="brand">mouthfuls</header>
+
+    <section class="hero">
+      <h1>Something delicious<br>is on the way.</h1>
+      <p class="lede">We're cooking up Mouthfuls. Join the waitlist and be first at the table when we launch.</p>
+
+      <form id="waitlist" class="form" novalidate>
+        <label for="email" class="sr-only">Email address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <!-- honeypot to deter bots -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+        <button type="submit">Join the waitlist</button>
+      </form>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <footer class="foot">&copy; <span id="year"></span> Mouthfuls</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
