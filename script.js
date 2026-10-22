@@ -1,6 +1,5 @@
-// Set this to your form endpoint (e.g. a Formspree form: https://formspree.io/f/xxxxxxx).
-// Any endpoint that accepts a JSON POST of { email } works.
-const WAITLIST_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+// Set this to your Google Apps Script web app URL (see google-apps-script.gs and README).
+const WAITLIST_ENDPOINT = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
 
 const form = document.getElementById("waitlist");
 const statusEl = document.getElementById("status");
@@ -27,12 +26,13 @@ form.addEventListener("submit", async (e) => {
   setStatus("Adding you to the list…");
 
   try {
+    // Form-encoded body keeps this a "simple" CORS request, which Apps Script requires.
     const res = await fetch(WAITLIST_ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ email }),
+      body: new URLSearchParams({ email }),
     });
-    if (!res.ok) throw new Error(res.statusText);
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || "signup_failed");
     form.reset();
     setStatus("You're on the list! We'll be in touch soon.", "ok");
   } catch (err) {
