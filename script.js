@@ -1,43 +1,73 @@
 // Set this to your Google Apps Script web app URL (see google-apps-script.gs and README).
 const WAITLIST_ENDPOINT = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
 
-const form = document.getElementById("waitlist");
-const statusEl = document.getElementById("status");
-const button = form.querySelector("button");
+const modal = document.getElementById("modal");
+let lastFocus = null;
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
-function setStatus(msg, kind) {
-  statusEl.textContent = msg;
-  statusEl.className = "status" + (kind ? " " + kind : "");
+// Modal
+function openModal() {
+  lastFocus = document.activeElement;
+  modal.hidden = false;
+  document.body.style.overflow = "hidden";
+  const input = modal.querySelector("input[type=email]");
+  (input && !input.closest("[hidden]") ? input : modal.querySelector(".modal-close")).focus();
 }
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const email = form.email.value.trim();
+function closeModal() {
+  modal.hidden = true;
+  document.body.style.overflow = "";
+  if (lastFocus) lastFocus.focus();
+}
 
-  if (!form.email.checkValidity() || !email) {
-    setStatus("Please enter a valid email address.", "err");
-    return;
-  }
-  if (form._gotcha.value) return; // bot
+document.querySelectorAll("[data-open-modal]").forEach((b) => b.addEventListener("click", openModal));
+modal.querySelector("[data-close-modal]").addEventListener("click", closeModal);
+modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !modal.hidden) closeModal(); });
 
-  button.disabled = true;
-  setStatus("Adding you to the list…");
+// Waitlist forms (inline + modal share state)
+function showJoined(email) {
+  document.querySelectorAll("[data-email]").forEach((el) => (el.textContent = email));
+  document.querySelectorAll("[data-not-joined]").forEach((el) => (el.hidden = true));
+  document.querySelectorAll("[data-joined]").forEach((el) => (el.hidden = false));
+}
 
-  try {
-    // Form-encoded body keeps this a "simple" CORS request, which Apps Script requires.
-    const res = await fetch(WAITLIST_ENDPOINT, {
-      method: "POST",
-      body: new URLSearchParams({ email }),
-    });
-    const data = await res.json();
-    if (!data.ok) throw new Error(data.error || "signup_failed");
-    form.reset();
-    setStatus("You're on the list! We'll be in touch soon.", "ok");
-  } catch (err) {
-    setStatus("Something went wrong. Please try again.", "err");
-  } finally {
-    button.disabled = false;
-  }
+document.querySelectorAll(".waitlist-form").forEach((form) => {
+  const input = form.querySelector("input[type=email]");
+  const button = form.querySelector("button[type=submit]");
+  const error = form.querySelector(".form-error");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    error.textContent = "";
+    const email = input.value.trim();
+
+    if (!email || !input.checkValidity()) {
+      error.textContent = "Please enter a valid email address.";
+      input.focus();
+      return;
+    }
+    if (form._gotcha.value) return; // bot
+
+    button.disabled = true;
+    const label = button.textContent;
+    button.textContent = "Joining…";
+
+    try {
+      // Form-encoded body keeps this a "simple" CORS request, which Apps Script requires.
+      const res = await fetch(WAITLIST_ENDPOINT, {
+        method: "POST",
+        body: new URLSearchParams({ email }),
+      });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || "signup_failed");
+      showJoined(email);
+    } catch (err) {
+      error.textContent = "Something went wrong. Please try again.";
+    } finally {
+      button.disabled = false;
+      button.textContent = label;
+    }
+  });
 });

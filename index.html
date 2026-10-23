@@ -3,33 +3,194 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mouthfuls — Coming Soon</title>
-  <meta name="description" content="Mouthfuls is coming soon. Join the waitlist to get early access.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Mouthfuls — Make mealtime fun</title>
+  <meta name="description" content="Mealtime games to get kids tasting, exploring and trying new foods. Join the Mouthfuls waitlist.">
+  <meta property="og:title" content="Mouthfuls — Make mealtime fun">
+  <meta property="og:description" content="Mealtime games to get kids tasting, exploring and trying new foods. Join the waitlist.">
+  <meta property="og:image" content="assets/hero.jpg">
+  <link rel="icon" href="assets/mark.png">
+  <link rel="preload" href="assets/fonts/dynapuff-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="wrap">
-    <header class="brand">mouthfuls</header>
+  <div class="page">
+    <div class="sheet">
 
-    <section class="hero">
-      <h1>Something delicious<br>is on the way.</h1>
-      <p class="lede">We're cooking up Mouthfuls. Join the waitlist and be first at the table when we launch.</p>
+      <!-- Announcement -->
+      <div class="announce">Launching early 2027. <a href="#join">Get on the waitlist</a></div>
 
-      <form id="waitlist" class="form" novalidate>
-        <label for="email" class="sr-only">Email address</label>
-        <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
-        <!-- honeypot to deter bots -->
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
-        <button type="submit">Join the waitlist</button>
-      </form>
-      <p id="status" class="status" role="status" aria-live="polite"></p>
-    </section>
+      <!-- Hero -->
+      <section class="hero">
+        <img class="hero-bg" src="assets/hero.jpg" alt="" aria-hidden="true">
+        <div class="hero-shade" aria-hidden="true"></div>
 
-    <footer class="foot">&copy; <span id="year"></span> Mouthfuls</footer>
-  </main>
+        <header class="nav">
+          <nav class="nav-links" aria-label="Primary">
+            <a href="#about">About</a>
+            <a href="#game">The game</a>
+          </nav>
+          <img class="nav-logo" src="assets/logo.png" alt="Mouthfuls">
+          <div class="nav-links nav-right">
+            <a href="#follow">Follow us</a>
+            <button type="button" class="btn btn-sm" data-open-modal>Join the waitlist</button>
+          </div>
+        </header>
+
+        <div class="hero-body">
+          <h1 class="hero-title">Make mealtime fun</h1>
+          <p class="hero-lede">Mealtime games to get kids tasting, exploring and trying new foods. Sign up to get Mouthfuls for your dinner table.</p>
+          <button type="button" class="btn btn-lg" data-open-modal>Join the waitlist</button>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="about">
+        <div class="about-inner">
+          <div class="about-media">
+            <img class="about-photo" src="assets/about.jpg" alt="A boy laughing with a fork in hand at the dinner table">
+            <img class="about-sticker about-sticker-top" src="assets/food-1.png" alt="" aria-hidden="true">
+            <img class="about-sticker about-sticker-bottom" src="assets/food-2.png" alt="" aria-hidden="true">
+          </div>
+          <div class="about-copy">
+            <span class="eyebrow">About Mouthfuls</span>
+            <h2 class="h2 h2-blue">What is it?</h2>
+            <p class="lead">Mouthfuls helps kids explore food the way they explore the world: with play, curiosity, and imagination. We aim to bring fun back to your dinner table with products that get your kids tasting, trying, and exploring new foods.</p>
+            <p class="body">This idea grew over shared frustrations we were seeing at our dinner tables: food refusal, struggles to keep kids at the table, and yes… tears shed over sandwiches cut the wrong way. We started to notice that when mealtime felt fun, things shifted. Feeding a pretend bunny at the table got veggies eaten. Comparing one food cooked two ways unlocked curiosity to taste. This fun-first approach to get kids curious about eating was the basis of our idea and the product we hope to build.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Band -->
+      <div class="band" aria-hidden="true">
+        <span style="color: #F9ED03">MAKE MEALTIME FUN</span>
+        <img src="assets/icon-1.png" alt="">
+        <span style="color: #FF98DD">MAKE MEALTIME FUN</span>
+        <img src="assets/icon-2.png" alt="">
+        <span style="color: #85C2FF">MAKE MEALTIME FUN</span>
+        <img src="assets/icon-3.png" alt="">
+        <span style="color: #BCBB1E">MAKE MEALTIME FUN</span>
+      </div>
+
+      <!-- The game -->
+      <section id="game" class="game">
+        <div class="game-inner">
+          <div class="game-head">
+            <div class="game-title">
+              <span class="eyebrow eyebrow-indigo">Our first product</span>
+              <h2 class="h2">A card game for the table</h2>
+            </div>
+            <p class="body game-copy">For our first product launch, we are building a card-based game made to play during meals (and snacks!). The game features a set of cards that easily adapts to your table. Mix and match based on what’s on your plate, your kids’ texture preferences, or sensory needs, or the types of games you want to play. Use our games to meet your kid wherever they are at with a new food.</p>
+          </div>
+          <div class="cards">
+            <div class="card" style="background: #FA3520; --tilt: -3deg">
+              <img class="card-icon" src="assets/icon-4.png" alt="" aria-hidden="true">
+              <img class="card-art" src="assets/food-3.png" alt="" aria-hidden="true" style="width: 72%">
+              <span class="card-label" style="color: #FFF3EA">What’s on your plate</span>
+            </div>
+            <div class="card" style="background: #F9ED03; --tilt: 2deg">
+              <img class="card-icon" src="assets/icon-5.png" alt="" aria-hidden="true">
+              <img class="card-art" src="assets/food-2.png" alt="" aria-hidden="true" style="width: 64%">
+              <span class="card-label">Texture preferences</span>
+            </div>
+            <div class="card" style="background: #FF98DD; --tilt: -2deg">
+              <img class="card-icon" src="assets/icon-6.png" alt="" aria-hidden="true">
+              <img class="card-art" src="assets/food-1.png" alt="" aria-hidden="true" style="width: 56%">
+              <span class="card-label">Sensory needs</span>
+            </div>
+            <div class="card" style="background: #126B08; --tilt: 3deg">
+              <img class="card-icon" src="assets/icon-7.png" alt="" aria-hidden="true">
+              <img class="card-art" src="assets/food-4.png" alt="" aria-hidden="true" style="width: 56%">
+              <span class="card-label" style="color: #FFF3EA">Games you want to play</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Waitlist -->
+      <section id="join" class="join">
+        <div class="join-inner">
+          <div class="join-icons" aria-hidden="true">
+            <img src="assets/icon-8.png" alt="">
+            <img src="assets/icon-9.png" alt="">
+            <img src="assets/icon-7.png" alt="">
+            <img src="assets/icon-1.png" alt="">
+            <img src="assets/icon-5.png" alt="">
+            <img src="assets/icon-4.png" alt="">
+            <img src="assets/icon-2.png" alt="">
+            <img src="assets/icon-6.png" alt="">
+            <img src="assets/icon-3.png" alt="">
+          </div>
+          <div class="join-copy">
+            <h2 class="h2">Get on the waitlist!</h2>
+            <p class="lead">We’re so glad you’re here! Get on our waitlist to be notified when we launch early 2027.</p>
+
+            <form class="waitlist-form" data-not-joined novalidate>
+              <label for="mf-email" class="label">Your email</label>
+              <div class="form-row">
+                <input id="mf-email" class="input" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+                <button type="submit" class="btn btn-dark">Join the waitlist</button>
+              </div>
+              <p class="form-error" role="alert"></p>
+            </form>
+
+            <div class="success" role="status" data-joined hidden>
+              <img src="assets/icon-8.png" alt="">
+              <div>
+                <strong>You’re on the list!</strong>
+                <span>We sent a confirmation to <span data-email></span>. See you at the table in early 2027.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Follow -->
+      <footer id="follow" class="follow">
+        <div class="follow-inner">
+          <h2 class="h2 h2-pink">Follow us!</h2>
+          <p class="follow-copy">We’re two moms, raising our kids, working, and building this product in our (not-so-spare) time.</p>
+          <div class="socials">
+            <!-- TODO: replace with real handles / contact email -->
+            <a href="https://www.tiktok.com/@your-handle" class="social">TikTok</a>
+            <a href="https://www.instagram.com/your-handle" class="social">Instagram</a>
+            <a href="mailto:hello@example.com" class="social">Contact us</a>
+          </div>
+          <img class="follow-logo" src="assets/logo-footer.png" alt="Mouthfuls">
+          <span class="copyright">© <span id="year">2026</span> Mouthfuls</span>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Waitlist popup -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mf-modal-title">
+      <button type="button" class="modal-close" aria-label="Close" data-close-modal>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <img src="assets/mark.png" alt="" aria-hidden="true" class="modal-mark">
+
+      <div class="modal-body" data-not-joined>
+        <h2 id="mf-modal-title" class="modal-title">Get on the waitlist!</h2>
+        <p class="modal-copy">Be the first to know when we launch early 2027.</p>
+        <form class="waitlist-form modal-form" novalidate>
+          <label for="mf-modal-email" class="label">Your email</label>
+          <input id="mf-modal-email" class="input input-white" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+          <button type="submit" class="btn btn-dark">Join the waitlist</button>
+          <p class="form-error" role="alert"></p>
+        </form>
+      </div>
+
+      <div class="modal-body" role="status" data-joined hidden>
+        <h2 class="modal-title">You’re on the list!</h2>
+        <p class="modal-copy">We sent a confirmation to <span data-email></span>. See you at the table in early 2027.</p>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
