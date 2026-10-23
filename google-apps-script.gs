@@ -6,7 +6,7 @@ const SHEET_NAME = "Waitlist";
 const SEND_CONFIRMATION = true;
 
 // Where the landing page is hosted — the email loads its images from here.
-const SITE_URL = "https://YOUR-SITE.com";
+const SITE_URL = "https://mouthfuls.vercel.app";
 const TIKTOK_URL = "https://www.tiktok.com/@your-handle";
 const INSTAGRAM_URL = "https://www.instagram.com/your-handle";
 const CONTACT_EMAIL = "hello@example.com";
