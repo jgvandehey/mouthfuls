@@ -1,66 +1,66 @@
-// Paste this into Extensions → Apps Script on your waitlist Google Sheet,
-// then Deploy → New deployment → Web app (Execute as: Me, Who has access: Anyone).
-// Copy the web app URL into WAITLIST_ENDPOINT in script.js.
+// Vercel serverless function: POST /api/waitlist
+// Saves the signup as a Resend contact and sends the confirmation email.
+// Needs RESEND_API_KEY (Full access) in Vercel → Settings → Environment Variables.
 
-const SHEET_NAME = "Waitlist";
+const FROM = "Mouthfuls <hello@playmouthfuls.com>";
 const SEND_CONFIRMATION = true;
 
 // Where the landing page is hosted — the email loads its images from here.
-const SITE_URL = "https://mouthfuls.vercel.app";
+const SITE_URL = "https://mouthfuls.vercel.app"; // switch to https://www.playmouthfuls.com once its https works
 const TIKTOK_URL = "https://www.tiktok.com/@your-handle";
 const INSTAGRAM_URL = "https://www.instagram.com/your-handle";
-const CONTACT_EMAIL = "hello@example.com";
+const CONTACT_EMAIL = "hello@playmouthfuls.com";
 
-function doPost(e) {
-  const params = (e && e.parameter) || {};
-  if (params._gotcha) return json({ ok: true }); // bot
+export default async function handler(req, res) {
+  if (req.method !== "POST") return res.status(405).json({ ok: false, error: "method_not_allowed" });
+
+  const params = req.body || {};
+  if (params._gotcha) return res.json({ ok: true }); // bot
 
   const email = String(params.email || "").trim().toLowerCase();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return json({ ok: false, error: "invalid_email" });
+    return res.status(400).json({ ok: false, error: "invalid_email" });
   }
 
-  const lock = LockService.getScriptLock();
-  lock.waitLock(10000);
   try {
-    const sheet = getSheet();
-    const last = sheet.getLastRow();
-    const existing = last > 1 ? sheet.getRange(2, 1, last - 1, 1).getValues().flat() : [];
-    if (existing.includes(email)) return json({ ok: true, duplicate: true });
-    sheet.appendRow([email, new Date()]);
-  } finally {
-    lock.releaseLock();
+    const existing = await resend("GET", "/contacts/" + encodeURIComponent(email));
+    if (existing.ok) return res.json({ ok: true, duplicate: true });
+
+    const created = await resend("POST", "/contacts", { email, unsubscribed: false });
+    if (!created.ok) throw new Error("contact " + created.status + ": " + (await created.text()));
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ ok: false, error: "signup_failed" });
   }
 
   if (SEND_CONFIRMATION) {
-    try {
-      MailApp.sendEmail({
-        to: email,
-        name: "Mouthfuls",
-        replyTo: CONTACT_EMAIL,
-        subject: "You're on the Mouthfuls waitlist!",
-        body:
-          "You're on the list!\n\nWe're so glad you're here! Thanks for joining the Mouthfuls waitlist. " +
-          "We'll let you know the moment we launch in early 2027.\n\n" +
-          "TikTok: " + TIKTOK_URL + "\nInstagram: " + INSTAGRAM_URL + "\n\n— The Mouthfuls team",
-        htmlBody: confirmationHtml(),
-      });
-    } catch (err) {
-      // Don't fail the signup if the daily email quota is hit.
-      console.error(err);
-    }
+    // Don't fail the signup if the email can't be sent (e.g. daily quota hit).
+    const sent = await sendConfirmation(email).catch((err) => err);
+    if (!sent || !sent.ok) console.error("confirmation email failed", sent && sent.status, sent && (await sent.text?.()));
   }
 
-  return json({ ok: true });
+  return res.json({ ok: true });
 }
 
-// Run this once from the Apps Script editor to preview the email in your own inbox.
-function sendTestEmail() {
-  MailApp.sendEmail({
-    to: Session.getActiveUser().getEmail(),
-    name: "Mouthfuls",
-    subject: "[Test] You're on the Mouthfuls waitlist!",
-    htmlBody: confirmationHtml(),
+export function sendConfirmation(to, subject = "You're on the Mouthfuls waitlist!") {
+  return resend("POST", "/emails", {
+    from: FROM,
+    to,
+    reply_to: CONTACT_EMAIL,
+    subject,
+    html: confirmationHtml(),
+    text:
+      "You're on the list!\n\nWe're so glad you're here! Thanks for joining the Mouthfuls waitlist. " +
+      "We'll let you know the moment we launch in early 2027.\n\n" +
+      "TikTok: " + TIKTOK_URL + "\nInstagram: " + INSTAGRAM_URL + "\n\n— The Mouthfuls team",
+  });
+}
+
+function resend(method, path, body) {
+  return fetch("https://api.resend.com" + path, {
+    method,
+    headers: { Authorization: "Bearer " + process.env.RESEND_API_KEY, "Content-Type": "application/json" },
+    body: body && JSON.stringify(body),
   });
 }
 
@@ -119,18 +119,4 @@ function confirmationHtml() {
 
     "</table></td></tr></table></body></html>"
   );
-}
-
-function getSheet() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  let sheet = ss.getSheetByName(SHEET_NAME);
-  if (!sheet) {
-    sheet = ss.insertSheet(SHEET_NAME);
-    sheet.appendRow(["Email", "Signed up at"]);
-  }
-  return sheet;
-}
-
-function json(obj) {
-  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
 }

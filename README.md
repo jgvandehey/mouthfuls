@@ -1,34 +1,32 @@
 # Mouthfuls
 
-Static waitlist landing page for Mouthfuls. Signups are saved to a Google Sheet and each person gets a branded confirmation email. No backend or third-party form service needed.
+Static waitlist landing page for Mouthfuls, hosted on Vercel. Signups are saved as contacts in [Resend](https://resend.com) and each person gets a branded confirmation email from hello@playmouthfuls.com.
 
 ```
 index.html              page markup (hero, about, card game, waitlist, follow, popup)
 styles.css              styles + tablet/phone breakpoints
 script.js               popup + waitlist form submission
+api/waitlist.js         Vercel function: saves the signup to Resend + sends the confirmation email
 assets/                 images and self-hosted fonts (DynaPuff, Figtree — SIL OFL)
-google-apps-script.gs   Sheet backend + confirmation email
 ```
 
-## Setup
+## Deploying
 
-1. Deploy this folder to any static host (GitHub Pages, Netlify, Vercel, Cloudflare Pages) and note the URL.
-2. Create a new Google Sheet and open **Extensions → Apps Script**. Replace the default code with `google-apps-script.gs`.
-3. At the top of the script, fill in `SITE_URL` (from step 1; the email loads its images from there), `TIKTOK_URL`, `INSTAGRAM_URL`, and `CONTACT_EMAIL`. Save.
-4. Optional: select `sendTestEmail` in the toolbar and click **Run** to preview the confirmation email in your inbox.
-5. **Deploy → New deployment → Web app**, *Execute as* **Me**, *Who has access* **Anyone**. Deploy and authorize.
-6. Copy the web app URL (ends in `/exec`) into `WAITLIST_ENDPOINT` at the top of `script.js` and redeploy the site.
+Every push to `main` deploys automatically to https://mouthfuls.vercel.app (and playmouthfuls.com).
 
-Signups land in the **Waitlist** tab (created automatically) with a timestamp; duplicates are ignored.
+`api/waitlist.js` needs `RESEND_API_KEY` (a **Full access** Resend key) set in Vercel → Settings → Environment Variables. For local testing, put the same line in `.env.local` (git-ignored).
 
-### Confirmation emails
+## Waitlist
 
-Sent from your Google account via `MailApp` (about 100/day on a free Gmail account, 1,500/day on Workspace). Set `SEND_CONFIRMATION = false` to turn them off. After editing the script, publish via **Deploy → Manage deployments → Edit → New version**, or the old version keeps running.
+- Signups appear in Resend → **Audience → Contacts**. Duplicates are ignored and don't get a second email.
+- To email everyone at launch, use Resend → **Broadcasts**.
+- The sending address, social links and contact email are at the top of `api/waitlist.js`. Set `SEND_CONFIRMATION = false` to stop confirmation emails.
+- `playmouthfuls.com` DNS is managed at DreamHost; Resend's DNS records live there too.
 
 ### Placeholders to replace
 
 - Social links and contact email in the footer of `index.html`.
-- The same values at the top of `google-apps-script.gs`.
+- The same values at the top of `api/waitlist.js`.
 
 ## Local preview
 

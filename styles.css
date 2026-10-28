@@ -133,6 +133,8 @@ a:hover { color: var(--red); }
 .nav-links { display: flex; gap: 32px; flex-wrap: wrap; align-items: center; font-weight: 800; font-size: 16px; }
 .nav-links a { color: var(--cream); text-decoration: none; }
 .nav-links a:hover { color: var(--yellow); }
+.nav-links a.nav-follow { color: var(--maroon); }
+.nav-links a.nav-follow:hover { color: var(--red); }
 .nav-right { justify-content: flex-end; }
 .nav-logo { height: 72px; width: auto; display: block; }
 .hero-body {

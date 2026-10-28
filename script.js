@@ -1,5 +1,5 @@
-// Set this to your Google Apps Script web app URL (see google-apps-script.gs and README).
-const WAITLIST_ENDPOINT = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
+// Vercel function in api/waitlist.js — saves the signup to Resend and sends the confirmation email.
+const WAITLIST_ENDPOINT = "/api/waitlist";
 
 const modal = document.getElementById("modal");
 let lastFocus = null;
@@ -55,7 +55,6 @@ document.querySelectorAll(".waitlist-form").forEach((form) => {
     button.textContent = "Joining…";
 
     try {
-      // Form-encoded body keeps this a "simple" CORS request, which Apps Script requires.
       const res = await fetch(WAITLIST_ENDPOINT, {
         method: "POST",
         body: new URLSearchParams({ email }),
