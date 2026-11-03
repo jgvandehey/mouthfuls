@@ -11,7 +11,7 @@
   <link rel="icon" href="assets/mark.png">
   <link rel="preload" href="assets/fonts/dynapuff-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=32">
+  <link rel="stylesheet" href="styles.css?v=72">
 </head>
 <body>
   <!-- deploy test: confirming Vercel auto-deploy works -->
@@ -23,7 +23,7 @@
 
       <!-- Hero -->
       <section class="hero">
-        <img class="hero-bg" src="assets/herotest6.png" alt="" aria-hidden="true">
+        <img class="hero-bg" src="assets/herotest7.png" alt="" aria-hidden="true">
         <div class="hero-shade" aria-hidden="true"></div>
 
         <header class="nav">
@@ -41,8 +41,22 @@
         <div class="hero-body">
           <div class="hero-text-scrim" aria-hidden="true"></div>
           <h1 class="hero-title">Make mealtime fun</h1>
-          <p class="hero-lede">Mealtime games to get kids tasting, exploring, and trying new foods. Sign up to get Mouthfuls for your dinner table.</p>
-          <button type="button" class="btn btn-lg" data-open-modal>Join the waitlist</button>
+          <p class="hero-lede">Mealtime games to get kids tasting, exploring, and trying new foods.</p>
+
+          <p class="hero-form-label">Get Mouthfuls for your dinner table!</p>
+          <form class="waitlist-form hero-form" data-not-joined novalidate>
+            <div class="form-row">
+              <input class="input" name="email" type="email" required placeholder="you@example.com" autocomplete="email" aria-label="Email address">
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+              <button type="submit" class="btn btn-dark">Join the waitlist</button>
+            </div>
+            <p class="form-error" role="alert"></p>
+          </form>
+
+          <div class="hero-joined" role="status" data-joined hidden>
+            <strong>You’re on the list!</strong>
+            <span>We sent a confirmation to <span data-email></span>.</span>
+          </div>
         </div>
       </section>
 
@@ -56,10 +70,10 @@
             <img class="about-sticker about-sticker-bottom" src="assets/food-2.png" alt="" aria-hidden="true">
           </div>
           <div class="about-copy">
-            <span class="eyebrow">About Mouthfuls</span>
-            <h2 class="h2 h2-blue">What is it?</h2>
-            <p class="lead">Mouthfuls helps kids explore food the way they explore the world: with play, curiosity, and imagination - bringing fun back to your dinner table with products that get your kids tasting and exploring new foods.</p>
-            <p class="body">This idea grew over shared frustrations we were seeing at our own dinner tables: food refusal, struggles to keep kids at the table, and yes… tears shed over sandwiches cut the wrong way. We started to notice that when mealtime felt fun, things shifted. Feeding a pretend bunny at the table got veggies eaten. Comparing one food cooked two ways unlocked curiosity to taste. This fun-first approach to eating was the basis of our brand.</p>
+            <span class="eyebrow eyebrow-indigo">About Mouthfuls</span>
+            <h2 class="h2">What is it?</h2>
+            <p class="lead">Mouthfuls helps kids explore food the way they explore the world: with play, curiosity, and imagination</p>
+            <p class="body">This started at our own dinner tables with food refusals, struggles to keep kids seated at the table, and tears over a sandwich cut the wrong way. But a lightbulb went off when feeding a pretend bunny and suddenly veggies disappeared. Creating a “mega combo” bite of food got everyone curious to taste. Fun was the missing ingredient at our tables and became the foundation of everything we are building at Mouthfuls.</p>
           </div>
         </div>
       </section>
@@ -92,30 +106,30 @@
           <div class="game-head">
             <div class="game-title">
               <span class="eyebrow eyebrow-indigo">Our first product</span>
-              <h2 class="h2">A card game for your table</h2>
+              <h2 class="h2">Games for your dinner table</h2>
             </div>
-            <p class="body game-copy">Our first product is a card game system that gets kids tasting, trying, and exploring new foods through 4 different games. With four decks of sensory, descriptive, and challenge-based play cards that can be adapted to fit what's on your plate, your families taste preferences, sensory needs & more.</p>
+            <p class="body game-copy">Our first product is a card game system built for the whole family to play during meals (and snacks!) The card decks combine to make four different games that easily flex with what’s on your plate, how your kid likes to play, and your family’s tastes. Find the game that works for your table, explore new foods, and have fun!</p>
           </div>
           <div class="cards">
             <div class="card" style="background: #FA3520; --tilt: -3deg">
-              <img class="card-icon" src="assets/icon-4.png" alt="" aria-hidden="true">
+              <img class="card-icon" src="assets/icon-1.png" alt="" aria-hidden="true">
               <img class="card-art" src="assets/food-3.png" alt="" aria-hidden="true" style="width: 72%">
-              <span class="card-label" style="color: #FFF3EA">What’s on your plate</span>
+              <span class="card-label" style="color: #FFF3EA">4 games in 1!</span>
             </div>
             <div class="card" style="background: #F9ED03; --tilt: 2deg">
               <img class="card-icon" src="assets/icon-5.png" alt="" aria-hidden="true">
               <img class="card-art" src="assets/food-2.png" alt="" aria-hidden="true" style="width: 64%">
-              <span class="card-label">Texture preferences</span>
+              <span class="card-label">No-pressure</span>
             </div>
-            <div class="card" style="background: #FF98DD; --tilt: -2deg">
+            <div class="card" style="background: #85C2FF; --tilt: -2deg">
               <img class="card-icon" src="assets/icon-6.png" alt="" aria-hidden="true">
               <img class="card-art" src="assets/food-1.png" alt="" aria-hidden="true" style="width: 56%">
-              <span class="card-label">Sensory needs</span>
+              <span class="card-label">Games for the whole family</span>
             </div>
             <div class="card" style="background: #126B08; --tilt: 3deg">
-              <img class="card-icon" src="assets/icon-7.png" alt="" aria-hidden="true">
+              <img class="card-icon" src="assets/icon-3.png" alt="" aria-hidden="true">
               <img class="card-art" src="assets/food-4.png" alt="" aria-hidden="true" style="width: 56%">
-              <span class="card-label" style="color: #FFF3EA">Games you want to play</span>
+              <span class="card-label" style="color: #FFF3EA">Play it your way</span>
             </div>
           </div>
         </div>
@@ -129,11 +143,11 @@
             <img src="assets/icon-9.png" alt="">
             <img src="assets/icon-7.png" alt="">
             <img src="assets/icon-1.png" alt="">
-            <img src="assets/icon-7.png" alt="">
-            <img src="assets/icon-4.png" alt="">
-            <img src="assets/icon-2.png" alt="">
-            <img src="assets/icon-6.png" alt="">
             <img src="assets/icon-3.png" alt="">
+            <img src="assets/icon-6.png" alt="">
+            <img src="assets/icon-5.png" alt="">
+            <img src="assets/icon-4.png" alt="">
+            <img src="assets/icon-1.png" alt="">
           </div>
           <div class="join-copy">
             <h2 class="h2">Get on the waitlist!</h2>
@@ -163,7 +177,7 @@
       <!-- Follow -->
       <footer id="follow" class="follow">
         <div class="follow-inner">
-          <h2 class="h2 h2-pink">Follow us!</h2>
+          <h2 class="h2">Follow us!</h2>
           <p class="follow-copy">We’re two moms, raising our kids, working, and building this product in our (not-so-spare) time.</p>
           <div class="socials">
             <!-- TODO: replace with real handles / contact email -->
@@ -171,7 +185,7 @@
             <a href="https://www.instagram.com/your-handle" class="social">Instagram</a>
             <a href="mailto:hello@example.com" class="social">Contact us</a>
           </div>
-          <img class="follow-logo" src="assets/logo-footer.png" alt="Mouthfuls">
+          <span class="follow-logo" role="img" aria-label="Mouthfuls"></span>
           <span class="copyright">© <span id="year">2026</span> Mouthfuls</span>
         </div>
       </footer>
