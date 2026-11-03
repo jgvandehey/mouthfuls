@@ -411,12 +411,16 @@ a:hover { color: var(--red); }
 /* Phone */
 @media (max-width: 560px) {
   :root { --gutter: 20px; }
-  .hero { min-height: 460px; }
+  .hero { min-height: 100vh; min-height: 100svh; }
   .nav { padding-top: 20px; padding-bottom: 20px; }
   .nav-logo { height: 44px; }
   .nav-right a { display: none; }
   .hero-body { justify-content: flex-end; padding-bottom: 48px; gap: 20px; }
+  .hero-title { font-size: 60px; }
   .hero-lede { font-size: 19px; }
+  .hero-form-label { font-size: 19px; }
+  .hero-form .form-row { flex-direction: column; }
+  .hero-body .hero-form .input, .hero-body .hero-form .btn { width: 100%; flex: 0 0 auto; }
   .lead { font-size: 18px; }
   .body { font-size: 17px; }
   .about-inner, .join-inner { gap: 40px; }
