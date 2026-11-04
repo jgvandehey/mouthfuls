@@ -416,7 +416,7 @@ a:hover { color: var(--red); }
   .nav { padding-top: 20px; padding-bottom: 20px; }
   .nav-logo { height: 44px; }
   .nav-right a { display: none; }
-  .hero-body { justify-content: flex-end; padding-bottom: 48px; gap: 20px; }
+  .hero-body { justify-content: center; padding-bottom: 48px; gap: 20px; }
   .hero-title { font-size: 60px; }
   .hero-lede { font-size: 19px; }
   .hero-form-label { font-size: 19px; }
