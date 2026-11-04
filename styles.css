@@ -412,7 +412,7 @@ a:hover { color: var(--red); }
 @media (max-width: 560px) {
   :root { --gutter: 20px; }
   .hero { min-height: 100vh; min-height: 100svh; }
-  .hero-bg { object-position: right 45%; }
+  .hero-bg { object-position: 70% 45%; }
   .nav { padding-top: 20px; padding-bottom: 20px; }
   .nav-logo { height: 44px; }
   .nav-right a { display: none; }
