@@ -111,7 +111,7 @@ a:hover { color: var(--red); }
 .announce a { color: var(--indigo); }
 
 /* Hero */
-.hero { position: relative; min-height: 580px; display: flex; flex-direction: column; }
+.hero { position: relative; min-height: 580px; display: flex; flex-direction: column; background: #9B3446; }
 .hero-bg {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: left 45%;
@@ -165,6 +165,7 @@ a:hover { color: var(--red); }
   text-shadow: 5px 6px 0 var(--maroon);
 }
 .hero-title span { white-space: nowrap; }
+.hero-title-break-mobile { display: none; }
 .hero-lede {
   margin: 0;
   font-size: 22px;
@@ -415,14 +416,15 @@ a:hover { color: var(--red); }
 @media (max-width: 560px) {
   :root { --gutter: 20px; }
   .hero { min-height: 100vh; min-height: 100svh; }
-  .hero-bg { object-position: 70% 45%; }
+  .hero { overflow: hidden; }
+  .hero-bg { object-position: 70% 45%; transform: scale(1.2); transform-origin: center bottom; }
   .nav { padding-top: 20px; padding-bottom: 20px; }
   .nav-logo { height: 44px; }
-  .nav-right a { display: none; }
-  .hero-body { justify-content: center; padding-bottom: 48px; gap: 20px; }
-  .hero-title { font-size: 60px; }
-  .hero-lede { font-size: 19px; }
-  .hero-form-label { font-size: 19px; }
+  .nav-right a, .nav-right .btn { display: none; }
+  .hero-body { justify-content: flex-end; padding-bottom: 72px; gap: 12px; }
+  .hero-title { font-size: 68px; }
+  .hero-lede { font-size: 26px; }
+  .hero-form-label { font-size: 20px; }
   .hero-form .form-row { flex-direction: column; }
   .hero-body .hero-form .input, .hero-body .hero-form .btn { width: 100%; flex: 0 0 auto; }
   .lead { font-size: 18px; }
