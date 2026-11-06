@@ -1,5 +1,5 @@
 ---
-description: Commit and push changes to deploy (publishes to mouthfuls.vercel.app)
+description: Commit and push changes to deploy (publishes to www.playmouthfuls.com)
 ---
 
 Publish the user's changes to the live site. Explain each step in plain English, no jargon.
@@ -16,6 +16,6 @@ Publish the user's changes to the live site. Explain each step in plain English,
 
 4. **Commit and push.** Write a short, plain-English commit message describing the change, then commit and run `git push origin main`.
 
-5. **Confirm.** Tell the user it's pushed and that the live site at https://mouthfuls.vercel.app updates automatically in about a minute.
+5. **Confirm.** Tell the user it's pushed and that the live site at https://www.playmouthfuls.com updates automatically in about a minute.
 
 **Never force-push or rewrite history.**

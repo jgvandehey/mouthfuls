@@ -12,7 +12,7 @@ assets/                 images and self-hosted fonts (DynaPuff, Figtree — SIL 
 
 ## Deploying
 
-Every push to `main` deploys automatically to https://mouthfuls.vercel.app (and playmouthfuls.com).
+Every push to `main` deploys automatically to https://www.playmouthfuls.com.
 
 `api/waitlist.js` needs `RESEND_API_KEY` (a **Full access** Resend key) set in Vercel → Settings → Environment Variables. For local testing, put the same line in `.env.local` (git-ignored).
 

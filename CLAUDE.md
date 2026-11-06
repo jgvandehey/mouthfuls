@@ -15,6 +15,6 @@ This is the landing page for **Mouthfuls**, a card game. It's a plain static web
 Two commands handle the whole workflow — type them into Claude Code:
 
 - **`/preview`** — Starts a local copy of the site on your computer and opens it in your browser so you can see your changes before they go live. The preview server keeps running until you stop it (press `Ctrl+C`). Nothing you see in preview is public yet.
-- **`/publish`** — Puts your changes on the live site at **https://mouthfuls.vercel.app**. It double-checks that nothing secret or private is about to be published, saves your changes, and pushes them. The live site updates about a minute later.
+- **`/publish`** — Puts your changes on the live site at **https://www.playmouthfuls.com**. It double-checks that nothing secret or private is about to be published, saves your changes, and pushes them. The live site updates about a minute later.
 
 A typical session: describe the change you want → Claude makes it → run `/preview` to check it → run `/publish` to make it live.
