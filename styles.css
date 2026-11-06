@@ -118,7 +118,7 @@ a:hover { color: var(--red); }
 }
 .hero-text-scrim {
   position: absolute; inset: 0;
-  background: radial-gradient(circle at 0% 100%, rgba(110,18,33,0.62) 0%, rgba(110,18,33,0.42) 30%, rgba(110,18,33,0.16) 55%, rgba(110,18,33,0) 75%);
+  background: radial-gradient(circle 580px at 0% 100%, rgba(110,18,33,0.62) 0%, rgba(110,18,33,0.42) 30%, rgba(110,18,33,0.16) 55%, rgba(110,18,33,0) 75%);
   pointer-events: none;
 }
 /* Keep hero copy painting above the scrim now that it lives inside .hero-body */
@@ -151,10 +151,11 @@ a:hover { color: var(--red); }
   justify-content: flex-end;
   gap: 16px;
   padding: 8px var(--gutter) 36px;
-  max-width: 560px;
+  max-width: 720px;
 }
 .hero-title {
   margin: 0;
+  max-width: none;
   font-family: var(--display);
   font-weight: 700;
   text-transform: uppercase;
@@ -163,6 +164,7 @@ a:hover { color: var(--red); }
   color: var(--pink);
   text-shadow: 5px 6px 0 var(--maroon);
 }
+.hero-title span { white-space: nowrap; }
 .hero-lede {
   margin: 0;
   font-size: 22px;
@@ -172,10 +174,11 @@ a:hover { color: var(--red); }
   max-width: 30ch;
 }
 .hero-form-label {
-  margin: 0;
+  margin: 16px 0 0;
   font-weight: 800;
   font-size: 22px;
-  color: var(--cream);
+  color: var(--yellow);
+  max-width: 480px;
 }
 .hero-form { max-width: 480px; }
 .hero-form .form-row { flex-wrap: nowrap; }
@@ -196,7 +199,7 @@ a:hover { color: var(--red); }
 .hero-joined span { font-size: 15px; line-height: 1.4; overflow-wrap: anywhere; color: var(--maroon); }
 
 /* About */
-.about { padding: 112px var(--gutter); background: var(--sky); }
+.about { padding: 72px var(--gutter); background: var(--sky); }
 .about-inner { max-width: 1180px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 64px; align-items: center; }
 .about-media { flex: 1 1 380px; min-width: 0; position: relative; padding: 24px; }
 .about-photo {
@@ -242,7 +245,7 @@ a:hover { color: var(--red); }
 }
 
 /* Game */
-.game { padding: 112px var(--gutter); background: var(--pink); }
+.game { padding: 72px var(--gutter); background: var(--pink); }
 .game-inner { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px; }
 .game-head { display: flex; flex-wrap: wrap; gap: 24px 64px; align-items: flex-end; }
 .game-title { flex: 1 1 420px; display: flex; flex-direction: column; gap: 16px; }
@@ -272,7 +275,7 @@ a:hover { color: var(--red); }
 
 /* Waitlist */
 .join {
-  padding: 112px var(--gutter);
+  padding: 72px var(--gutter);
   background: var(--maroon);
   border-top: 4px solid var(--maroon);
   border-bottom: 4px solid var(--maroon);
@@ -305,7 +308,7 @@ a:hover { color: var(--red); }
 .success span { font-size: 16px; line-height: 1.4; overflow-wrap: anywhere; }
 
 /* Follow */
-.follow { background: var(--cream); padding: 96px var(--gutter) 48px; color: var(--maroon); }
+.follow { background: var(--cream); padding: 72px var(--gutter) 48px; color: var(--maroon); }
 .follow .h2 { color: var(--indigo); }
 .follow-inner { max-width: 1080px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
 .follow-copy { margin: 0; font-size: 19px; line-height: 1.55; max-width: 44ch; }

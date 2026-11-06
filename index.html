@@ -17,7 +17,7 @@
   <link rel="icon" href="assets/mark.png">
   <link rel="preload" href="assets/fonts/dynapuff-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=90">
+  <link rel="stylesheet" href="styles.css?v=109">
 </head>
 <body>
   <!-- deploy test: confirming Vercel auto-deploy works -->
@@ -25,7 +25,7 @@
     <div class="sheet">
 
       <!-- Announcement -->
-      <div class="announce">Launching early 2027. <a href="#join">Get on the waitlist</a></div>
+      <div class="announce">Launching early 2027. <a href="#join">Get on the waitlist for first dibs.</a></div>
 
       <!-- Hero -->
       <section class="hero">
@@ -46,10 +46,10 @@
 
         <div class="hero-body">
           <div class="hero-text-scrim" aria-hidden="true"></div>
-          <h1 class="hero-title">Plays well with food</h1>
-          <p class="hero-lede">Mealtime games to get kids tasting, exploring, and trying new foods.</p>
+          <h1 class="hero-title"><span>Play with</span><br><span>your food</span></h1>
+          <p class="hero-lede">Games that turn whatever’s on your plate into food exploration for the whole family.</p>
 
-          <p class="hero-form-label">Get Mouthfuls for your dinner table!</p>
+          <p class="hero-form-label">Coming to your dinner table in 2027.</p>
           <form class="waitlist-form hero-form" data-not-joined novalidate>
             <div class="form-row">
               <input class="input" name="email" type="email" required placeholder="you@example.com" autocomplete="email" aria-label="Email address">
@@ -66,20 +66,37 @@
         </div>
       </section>
 
-      <!-- About -->
-      <section id="about" class="about">
-        <div class="about-inner">
-          <div class="about-media">
-            <img class="about-photo" src="assets/abouttest4.png" alt="Two kids laughing together at the table while their mom looks on">
-            <div class="about-photo-texture" aria-hidden="true"></div>
-            <img class="about-sticker about-sticker-top" src="assets/food-1.png" alt="" aria-hidden="true">
-            <img class="about-sticker about-sticker-bottom" src="assets/food-2.png" alt="" aria-hidden="true">
+      <!-- The game -->
+      <section id="game" class="game">
+        <div class="game-inner">
+          <div class="game-head">
+            <div class="game-title">
+              <span class="eyebrow eyebrow-indigo">Our first product</span>
+              <h2 class="h2">Games for your dinner table</h2>
+            </div>
+            <p class="body game-copy">A card game system built for the whole family to play during meals (and snacks!) The card decks combine to make four different games that easily flex with what’s on your plate, how your kid likes to play, and your family’s tastes. Find the game that works for your table, explore new foods, and have fun!</p>
           </div>
-          <div class="about-copy">
-            <h2 class="h2">Meet Mouthfuls</h2>
-            <span class="eyebrow eyebrow-indigo">Letting kids explore food like they explore the world.</span>
-            <p class="body">This idea grew out of shared frustrations at our own dinner tables: food refusal, struggles to keep kids at the table, and even tears shed over sandwiches cut the wrong way. We started to notice that when mealtime felt fun, things changed. Feeding a pretend bunny suddenly got veggies eaten. A food challenge became an incentive to taste something new. Fun was the missing ingredient at our tables and became the foundation of everything we are building at Mouthfuls.</p>
-            <p class="body"><strong>Kids learn about everything through play and imagination, so why should food be any different?</strong></p>
+          <div class="cards">
+            <div class="card" style="background: #FA3520; --tilt: -3deg">
+              <img class="card-icon" src="assets/icon-1.png" alt="" aria-hidden="true">
+              <img class="card-art" src="assets/food-3.png" alt="" aria-hidden="true" style="width: 72%">
+              <span class="card-label" style="color: #FFF3EA">4 games in 1!</span>
+            </div>
+            <div class="card" style="background: #F9ED03; --tilt: 2deg">
+              <img class="card-icon" src="assets/icon-5.png" alt="" aria-hidden="true">
+              <img class="card-art" src="assets/food-2.png" alt="" aria-hidden="true" style="width: 64%">
+              <span class="card-label">No-pressure</span>
+            </div>
+            <div class="card" style="background: #85C2FF; --tilt: -2deg">
+              <img class="card-icon" src="assets/icon-6.png" alt="" aria-hidden="true">
+              <img class="card-art" src="assets/food-1.png" alt="" aria-hidden="true" style="width: 56%">
+              <span class="card-label">Games for the whole family</span>
+            </div>
+            <div class="card" style="background: #126B08; --tilt: 3deg">
+              <img class="card-icon" src="assets/icon-3.png" alt="" aria-hidden="true">
+              <img class="card-art" src="assets/food-4.png" alt="" aria-hidden="true" style="width: 56%">
+              <span class="card-label" style="color: #FFF3EA">Play it your way</span>
+            </div>
           </div>
         </div>
       </section>
@@ -106,37 +123,20 @@
         </div>
       </div>
 
-      <!-- The game -->
-      <section id="game" class="game">
-        <div class="game-inner">
-          <div class="game-head">
-            <div class="game-title">
-              <span class="eyebrow eyebrow-indigo">Our first product</span>
-              <h2 class="h2">Games for your dinner table</h2>
-            </div>
-            <p class="body game-copy">Our first product is a card game system built for the whole family to play during meals (and snacks!) The card decks combine to make four different games that easily flex with what’s on your plate, how your kid likes to play, and your family’s tastes. Find the game that works for your table, explore new foods, and have fun!</p>
+      <!-- About -->
+      <section id="about" class="about">
+        <div class="about-inner">
+          <div class="about-media">
+            <img class="about-photo" src="assets/abouttest4.png" alt="Two kids laughing together at the table while their mom looks on">
+            <div class="about-photo-texture" aria-hidden="true"></div>
+            <img class="about-sticker about-sticker-top" src="assets/food-1.png" alt="" aria-hidden="true">
+            <img class="about-sticker about-sticker-bottom" src="assets/food-2.png" alt="" aria-hidden="true">
           </div>
-          <div class="cards">
-            <div class="card" style="background: #FA3520; --tilt: -3deg">
-              <img class="card-icon" src="assets/icon-1.png" alt="" aria-hidden="true">
-              <img class="card-art" src="assets/food-3.png" alt="" aria-hidden="true" style="width: 72%">
-              <span class="card-label" style="color: #FFF3EA">4 games in 1!</span>
-            </div>
-            <div class="card" style="background: #F9ED03; --tilt: 2deg">
-              <img class="card-icon" src="assets/icon-5.png" alt="" aria-hidden="true">
-              <img class="card-art" src="assets/food-2.png" alt="" aria-hidden="true" style="width: 64%">
-              <span class="card-label">No-pressure</span>
-            </div>
-            <div class="card" style="background: #85C2FF; --tilt: -2deg">
-              <img class="card-icon" src="assets/icon-6.png" alt="" aria-hidden="true">
-              <img class="card-art" src="assets/food-1.png" alt="" aria-hidden="true" style="width: 56%">
-              <span class="card-label">Games for the whole family</span>
-            </div>
-            <div class="card" style="background: #126B08; --tilt: 3deg">
-              <img class="card-icon" src="assets/icon-3.png" alt="" aria-hidden="true">
-              <img class="card-art" src="assets/food-4.png" alt="" aria-hidden="true" style="width: 56%">
-              <span class="card-label" style="color: #FFF3EA">Play it your way</span>
-            </div>
+          <div class="about-copy">
+            <h2 class="h2">Meet Mouthfuls</h2>
+            <span class="eyebrow eyebrow-indigo">Letting kids explore food like they explore the world.</span>
+            <p class="body">This idea grew out of shared frustrations at our own dinner tables: food refusal, struggles to keep kids at the table, and even tears shed over sandwiches cut the wrong way. We started to notice that when mealtime felt fun, things changed. Feeding a pretend bunny suddenly got veggies eaten. A food challenge became an incentive to taste something new. Fun was the missing ingredient at our tables and became the foundation of everything we are building at Mouthfuls.</p>
+            <p class="body"><strong>Kids learn about everything through play and imagination, so why should food be any different?</strong></p>
           </div>
         </div>
       </section>
