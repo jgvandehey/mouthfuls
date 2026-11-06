@@ -17,7 +17,7 @@
   <link rel="icon" href="assets/mark.png">
   <link rel="preload" href="assets/fonts/dynapuff-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v=131">
+  <link rel="stylesheet" href="styles.css?v=138">
 </head>
 <body>
   <!-- deploy test: confirming Vercel auto-deploy works -->
@@ -73,7 +73,7 @@
             <div class="game-text">
               <h2 class="h2">Games for your dinner table</h2>
               <span class="eyebrow eyebrow-indigo">A game system that turns whatever’s on your plate into food exploration and fun for the whole family.</span>
-              <p class="body game-copy">Four card decks mix and match to make four different games: a start to finish board-style game, a dice game, a challenge game, and a card game. The games, suited best for kids ages 3+, easily adapt to fit what’s on your plate, how your kid likes to play, your available time, and your family’s tastes.</p>
+              <p class="body game-copy">Four card decks mix and match to make four different games: a start to finish board-style game, a dice game, a challenge game, and a card game. The games, best suited for kids ages 3+, all easily adapt to fit what’s on your plate, how your kid likes to play, your available time, and your family’s tastes. Play right at your table, and bring the fun back to your mealtime.</p>
             </div>
             <div class="cards">
             <div class="card" style="background: #FA3520; --tilt: -3deg">
@@ -84,7 +84,7 @@
             <div class="card" style="background: #F9ED03; --tilt: 2deg">
               <img class="card-icon" src="assets/icon-5.png" alt="" aria-hidden="true">
               <img class="card-art" src="assets/food-2.png" alt="" aria-hidden="true" style="width: 64%">
-              <span class="card-label">No-pressure</span>
+              <span class="card-label">Anti clean-plate club</span>
             </div>
             <div class="card" style="background: #85C2FF; --tilt: -2deg">
               <img class="card-icon" src="assets/icon-6.png" alt="" aria-hidden="true">
@@ -135,7 +135,7 @@
           <div class="about-copy">
             <h2 class="h2">Meet Mouthfuls</h2>
             <span class="eyebrow eyebrow-indigo">Letting kids explore food like they explore the world: through play.</span>
-            <p class="body">This idea grew out of shared frustrations at our own dinner tables: food refusals, struggles to keep kids at the table, and even tears shed over sandwiches cut the wrong way. We started to notice that when mealtime felt playful, things changed. Feeding a pretend bunny suddenly got veggies eaten. A food challenge became an incentive to taste something new. Fun was the missing ingredient at our tables and became the foundation of everything we are building at Mouthfuls.</p>
+            <p class="body">This idea grew out of shared frustrations at our own dinner tables: food refusals, struggles to keep kids at the table, and yes… even tears shed over sandwiches cut the wrong way. We started to notice that when mealtime felt playful, things changed. Feeding a pretend bunny suddenly got veggies eaten. A food challenge became an incentive to taste something new. Fun was the missing ingredient at our tables and became the foundation of everything we are building at Mouthfuls.</p>
           </div>
         </div>
       </section>
@@ -159,9 +159,8 @@
             <p class="lead">We’ll let you know when Mouthfuls is ready for your table. Launching early 2027.</p>
 
             <form class="waitlist-form" data-not-joined novalidate>
-              <label for="mf-email" class="label">Your email</label>
               <div class="form-row">
-                <input id="mf-email" class="input" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
+                <input id="mf-email" class="input" name="email" type="email" required placeholder="you@example.com" autocomplete="email" aria-label="Email address">
                 <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
                 <button type="submit" class="btn btn-dark">Join the waitlist</button>
               </div>
