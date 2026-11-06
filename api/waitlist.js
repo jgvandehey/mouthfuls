@@ -27,12 +27,7 @@ export default async function handler(req, res) {
     if (existing.ok) return res.json({ ok: true, duplicate: true });
 
     const created = await resend("POST", "/contacts", { email, unsubscribed: false });
-    if (!created.ok) {
-      const detail = await created.text();
-      console.error("contact " + created.status + ": " + detail);
-      // TEMP DEBUG — remove after diagnosing. Surfaces the Resend status/message (no secrets) so we can see why signup fails.
-      return res.status(500).json({ ok: false, error: "signup_failed", resend_status: created.status, resend_detail: detail.slice(0, 300) });
-    }
+    if (!created.ok) throw new Error("contact " + created.status + ": " + (await created.text()));
   } catch (err) {
     console.error(err);
     return res.status(500).json({ ok: false, error: "signup_failed" });
