@@ -1,4 +1,18 @@
+# OS
 .DS_Store
-.env*
-.vercel
+
+# Secrets & environment variables (never commit these)
+.env
+.env.*
+
+# Data files (never commit customer data — spreadsheets, exports, keys)
+*.csv
+*.xlsx
+*.pem
+*.key
+
+# Dependencies & build output
 node_modules
+.next
+out
+.vercel
