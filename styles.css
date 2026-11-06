@@ -446,6 +446,14 @@ a:hover { color: var(--red); }
   .modal-title { font-size: 32px; }
 }
 
+/* Narrow phone: "Play with" / "Your food" no longer fits on one line each
+   at 68px, so fall back to 4 single-word lines instead of letting them wrap
+   mid-phrase. */
+@media (max-width: 420px) {
+  .hero-title-break-mobile { display: inline; }
+  .hero-title { font-size: 56px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .btn { transition: none; }
